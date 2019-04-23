@@ -52,9 +52,13 @@ public class Chapter7Innerclass{
 				public void setValue(){
 					class Cesar {
 					}
-					System.out.println("This 1>>> " + this);
-					System.out.println("This 2>>> " + Chapter7Innerclass.this);
+					
 					valor = 10014;
+					this.tryAccess = "Here is posible";
+					
+					System.out.println("This 1>>>!!! " + this);
+					System.out.println("This 2>>>!!! " + Chapter7Innerclass.this);
+					
 				}
 				
 				static final int valueTttt=0; 	
@@ -65,6 +69,12 @@ public class Chapter7Innerclass{
 					valor = v;
 					System.out.println("This SET VALUE >>> " + Chapter7Innerclass.this);
 					Chapter7Innerclass.this.valor=2323232;
+				}
+				
+				public String toString(){
+					String result = "Valor MyInner To String === " + tryAccess + " valor= " + valor;
+					System.out.println(result);
+					return result;
 				}
 			
 		}
@@ -96,7 +106,7 @@ public class Chapter7Innerclass{
 		}
 	
 	public String toString(){
-			String result = "Valor === " + valor;
+			String result = "Valor To String === " + valor;
 			System.out.println(result);
 			return result;
 	}
@@ -141,8 +151,9 @@ class OuterAccess{
 	
 	Chapter7Innerclass chapter7Innerclass = new Chapter7Innerclass();
 	Chapter7Innerclass.MyInner myInner = chapter7Innerclass.new MyInner();
+	Chapter7Innerclass.MyInner myInner2 = new Chapter7Innerclass().new MyInner();
 	
 	public void tryAccess(){
-		String value = myInner.tryAccess;
+		//String value = myInner.tryAccess; private Access
 	}
 }
