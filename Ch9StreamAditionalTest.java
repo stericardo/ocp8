@@ -35,8 +35,8 @@ public class Ch9StreamAditionalTest {
 
 
     public static void main(String[] args) throws Exception {
-		new TestClass();
-		List<Dog> dogs = new ArrayList<>();
+		new TestClass().m2();
+		/*List<Dog> dogs = new ArrayList<>();
 		dogs.add(new Dog("Steven", 10, 40));
 		dogs.add(new Dog("Steven2", 9, 70));
 		dogs.add(new Dog("Steven3", 8, 130));
@@ -46,6 +46,7 @@ public class Ch9StreamAditionalTest {
 		
 		
 			Map<Boolean, List<String>> dogByWeight6 = dogs.stream().collect(Collectors.partitioningBy(d -> d.getWeight() > 50, Collectors.mapping(Dog::getName, Collectors.toList())));
+			* */
 		//System.out.println("\n\n\n Partitioning::: " + dogByWeight6);
 		 // Create a list of strings 
         ArrayList<String> al = new ArrayList<String>(); 
@@ -85,9 +86,11 @@ public class Ch9StreamAditionalTest {
         try{
             m1();
         }catch(Exception e){
+			System.out.println("throwing ... ");
             //Can't do much about this exception so rethrow it
             throw e;
         }finally{
+			System.out.println("Finally ... ");
             throw new RuntimeException("Exception from finally");
         }
 	}
