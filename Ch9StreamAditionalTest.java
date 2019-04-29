@@ -36,8 +36,48 @@ public class Ch9StreamAditionalTest {
 
     public static void main(String[] args) throws Exception {
 		List<Integer> listInteger = Arrays.asList(1,2,3,4);
-		 double valueDouble = listInteger.stream().reduce((x,y)-> x + y).average();
+		 double valueDouble = listInteger.stream().reduce((x,y)-> x + y).get();
+		 System.out.println(valueDouble/listInteger.size());
+
+		new TestClass().m2();
+		/*List<Dog> dogs = new ArrayList<>();
+		dogs.add(new Dog("Steven", 10, 40));
+		dogs.add(new Dog("Steven2", 9, 70));
+		dogs.add(new Dog("Steven3", 8, 130));
+		dogs.add(new Dog("Steven3", 8, 130));
+		dogs.add(new Dog("Steven4", 7, 20));
+		dogs.add(new Dog("Steven5", 17, 130));
 		
+		
+			Map<Boolean, List<String>> dogByWeight6 = dogs.stream().collect(Collectors.partitioningBy(d -> d.getWeight() > 50, Collectors.mapping(Dog::getName, Collectors.toList())));
+			* */
+		//System.out.println("\n\n\n Partitioning::: " + dogByWeight6);
+		 // Create a list of strings 
+        ArrayList<String> al = new ArrayList<String>(); 
+        al.add("Geeks For Geeks"); 
+        al.add("Friends"); 
+        al.add("Dear"); 
+        al.add("Is"); 
+        al.add("Superb"); 
+  
+        // Creating a list of Strings 
+        List<String> list = Arrays.asList("1", "2", "3", 
+                                          "4", "5"); 
+  
+        // Using Stream flatMapToInt(Function mapper) 
+        //list.stream().flatMapToInt(num -> IntStream.of(Integer.parseInt(num))). 
+        //forEach(System.out::println); 
+        
+        //list.stream().mapToInt(num -> Integer.parseInt(num)). 
+        //forEach(System.out::println); 
+        
+       double[] array = {10,30,50,20,70};
+    	  //Set start value. Result will be start value + sum of array. 
+    	  int startValue = 1;
+    	  OptionalDouble sum = Arrays.stream(array).reduce( (x,y) -> x+y);
+    	  System.out.println(sum);
+        
+
 			
 	}
 		
@@ -51,9 +91,11 @@ public class Ch9StreamAditionalTest {
         try{
             m1();
         }catch(Exception e){
+			System.out.println("throwing ... ");
             //Can't do much about this exception so rethrow it
             throw e;
         }finally{
+			System.out.println("Finally ... ");
             throw new RuntimeException("Exception from finally");
         }
 	}
