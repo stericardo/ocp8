@@ -12,6 +12,7 @@ public class Lambdas{
 		
 		int value = 20;
 		//value = 10; Lambdas.java:15: error: local variables referenced from a lambda expression must be final or effectively final
+		
 		SupplierPractice<Integer> supplierPractice = () -> value + 100;
 		Integer resultInteger = supplierPractice.get();
 		System.out.println(resultInteger);
@@ -19,6 +20,9 @@ public class Lambdas{
 				System.out.println(v+v);
 			};
 		
+		FunctionPractice<Integer, Double> funtionPractice2 = v-> {return v + 1.0;};
+		
+		FunctionPractice<Integer, Double> funtionPractice3 = v-> (v + 1.0) + v;
 		
 	}
 
